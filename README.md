@@ -5,6 +5,7 @@ this is private repository. do not make it public.
 - instagram
 - flicker
 - pixiv
+- あくまでも課題設定の方が重要なので、実装は最低限で負担なく。企業もそれに関しては求めていない。
 
 # ペルソナ
 - 大学生
@@ -21,3 +22,8 @@ this is private repository. do not make it public.
 - ハッシュタグとの差別化
   - 複数のハッシュタグで検索をすることができる
   - 設定として保持するため、いちいち入力する必要がなくなる
+
+# めも
+- ハッシュタグでのタブ分け
+- ユーザーごとでタブ分け
+- これに関してはtwitterにリストっていう機能があったな
