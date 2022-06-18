@@ -25,11 +25,24 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.93333333330000001" green="0.41960784309999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6d1-nf-HZo">
+                                <rect key="frame" x="150" y="134" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ATo-yD-Z8d"/>
+                                    <constraint firstAttribute="width" constant="40" id="Frp-0z-cpy"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <backgroundConfiguration key="background" image="ribbon"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                         <constraints>
                             <constraint firstItem="tGl-MV-R2h" firstAttribute="top" secondItem="wps-48-Pvr" secondAttribute="top" constant="5" id="28I-NL-oOY"/>
                             <constraint firstAttribute="bottom" secondItem="tGl-MV-R2h" secondAttribute="bottom" constant="5" id="GFa-zk-jYg"/>
+                            <constraint firstAttribute="bottom" secondItem="6d1-nf-HZo" secondAttribute="bottom" constant="15" id="IdL-kQ-sZI"/>
+                            <constraint firstAttribute="trailing" secondItem="6d1-nf-HZo" secondAttribute="trailing" constant="7" id="OgF-Rc-3cp"/>
                             <constraint firstItem="tGl-MV-R2h" firstAttribute="leading" secondItem="wps-48-Pvr" secondAttribute="leading" constant="5" id="Zlw-Bj-XRk"/>
                             <constraint firstAttribute="trailing" secondItem="tGl-MV-R2h" secondAttribute="trailing" constant="5" id="fIo-uU-oz6"/>
                         </constraints>
@@ -46,12 +59,14 @@
             <size key="customSize" width="197" height="189"/>
             <connections>
                 <outlet property="backVIew" destination="wps-48-Pvr" id="5Nu-yz-msa"/>
+                <outlet property="bookmarkButton" destination="6d1-nf-HZo" id="olk-L0-BdK"/>
                 <outlet property="imageView" destination="tGl-MV-R2h" id="mAI-fU-bNt"/>
             </connections>
             <point key="canvasLocation" x="244.20289855072465" y="147.65625"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="ribbon" width="150" height="150"/>
         <image name="scribble.variable" catalog="system" width="128" height="118"/>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
