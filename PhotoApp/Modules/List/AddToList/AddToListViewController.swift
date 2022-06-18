@@ -22,6 +22,8 @@ class AddToListViewController: UIViewController {
         cancelButton.addTarget(nil, action: #selector(cancelButtonPressed), for: .touchUpInside)
 
         collectionView.register(UINib(nibName: "CollectionCell", bundle: nil), forCellWithReuseIdentifier: "CollectionCell")
+        collectionView.register(UINib(nibName: "AddButtonCell", bundle: nil), forCellWithReuseIdentifier: "AddButtonCell")
+
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -29,18 +31,12 @@ class AddToListViewController: UIViewController {
         backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         let testData = [
+            ImageCollection(listName: "齊藤京子", items: []),
             ImageCollection(listName: "齊藤京子", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
             ImageCollection(listName: "齊藤京子", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
             ImageCollection(listName: "齊藤京子", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
             ImageCollection(listName: "齊藤京子", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
-            ImageCollection(listName: "齊藤京子", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
-            ImageCollection(listName: "齊藤京子", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
-            ImageCollection(listName: "齊藤京子", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
-            ImageCollection(listName: "齊藤京子", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
-            ImageCollection(listName: "齊藤京子", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
-            ImageCollection(listName: "齊藤京子", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
-            ImageCollection(listName: "齊藤京子", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")])
-
+            ImageCollection(listName: "齊藤京子", items: []),
         ]
         
         // レイアウト設定
@@ -61,6 +57,12 @@ class AddToListViewController: UIViewController {
         NotificationCenter.default.post(name: .shouldCloseShade, object: nil)
     }
     
+    @objc func textFieldDidChange(_ textField: UITextField) {
+            if let text = textField.text, text.count > 5 {
+                textField.text = String(text.prefix(5))
+            }
+        }
+    
 
 
 
@@ -68,19 +70,51 @@ class AddToListViewController: UIViewController {
 
 extension AddToListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! CollectionCell
-        cell.width = Int((collectionView.frame.width / 3) - 30)
-        if let imageCollection = imageCollection, imageCollection.count > 0 {
-            cell.configure(imageCollection: imageCollection[indexPath.row])
+        if indexPath.row == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddButtonCell", for: indexPath) as! AddButtonCell
+            cell.delegate = self
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! CollectionCell
+            cell.width = Int((collectionView.frame.width / 3) - 30)
+            if let imageCollection = imageCollection, imageCollection.count > 0 {
+                cell.configure(imageCollection: imageCollection[indexPath.row - 1])
+            }
+            return cell
         }
+        
 
-        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // リスト追加する時は＋1すればいい
         guard let imageCollection = imageCollection else { return 0 }
-        return imageCollection.count
+        return imageCollection.count + 1
+    }
+    
+    
+}
+
+extension AddToListViewController: addButtonCellDelegate {
+    func plusButtonTapped() {
+        print("ここでアラートの処理")
+        
+        let alert: UIAlertController = UIAlertController(title: "新規リスト", message: "リストの名前を入力してください", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: nil)
+        alert.textFields?.first?.placeholder = "リスト1"
+        alert.textFields?.first?.addTarget(self, action: #selector(textFieldDidChange), for: .allEditingEvents)
+        let saveAction: UIAlertAction = UIAlertAction(title: "決定", style: .default, handler: { [weak self] (_: UIAlertAction!) -> Void in
+            guard let text = alert.textFields?.first?.text, !text.isEmpty else { return }
+            self?.imageCollection?.append(ImageCollection(listName: text, items: []))
+            self?.collectionView.reloadData()
+            
+        })
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+        
     }
     
     

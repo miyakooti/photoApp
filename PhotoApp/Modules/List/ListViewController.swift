@@ -88,8 +88,8 @@ final class ListViewController: UIViewController {
 //    override func didReceiveMemoryWarning() {
 //            super.didReceiveMemoryWarning()
 //        }
-//    
-//    
+//
+//
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        self.view.endEditing(true)
 //    }
@@ -103,9 +103,9 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
         cell.delegate = self
         cell.index = indexPath.row
-        if let searchResult = searchResult {
-            cell.loadImage(urlString: searchResult.items[indexPath.row].link)
-        }
+//        if let searchResult = searchResult {
+//            cell.loadImage(urlString: searchResult.items[indexPath.row].link)
+//        }
 //        if let searchResult = searchResult {
 //            cell.loadImage(urlString: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")
 //        }
@@ -113,8 +113,8 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let searchResult = searchResult else { return 0 }
-        return searchResult.items.count
+//        guard let searchResult = searchResult else { return 0 }
+//        return searchResult.items.count
         return 20
     }
     

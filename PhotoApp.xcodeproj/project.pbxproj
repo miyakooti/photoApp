@@ -24,6 +24,8 @@
 		D1D8F644285DE46B00D66146 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D8F643285DE46B00D66146 /* NSObject.swift */; };
 		D1D8F646285DE47500D66146 /* JsonEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D8F645285DE47500D66146 /* JsonEncoder.swift */; };
 		D1D8F648285DEA0000D66146 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D8F647285DEA0000D66146 /* UIViewControllerExtension.swift */; };
+		D1D8F64B285E0AB400D66146 /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D8F649285E0AB400D66146 /* AddButtonCell.swift */; };
+		D1D8F64C285E0AB400D66146 /* AddButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1D8F64A285E0AB400D66146 /* AddButtonCell.xib */; };
 		EBDEB2214A7A9A7E2C472725 /* Pods_PhotoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B739303C93D23C3FBE6FF173 /* Pods_PhotoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +51,8 @@
 		D1D8F643285DE46B00D66146 /* NSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		D1D8F645285DE47500D66146 /* JsonEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonEncoder.swift; sourceTree = "<group>"; };
 		D1D8F647285DEA0000D66146 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		D1D8F649285E0AB400D66146 /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
+		D1D8F64A285E0AB400D66146 /* AddButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddButtonCell.xib; sourceTree = "<group>"; };
 		D28D7DC69BF07DD8FBDAA98C /* Pods-PhotoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoApp.debug.xcconfig"; path = "Target Support Files/Pods-PhotoApp/Pods-PhotoApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +178,8 @@
 			children = (
 				D1D8F63D285DE37500D66146 /* CollectionCell.swift */,
 				D1D8F63E285DE37500D66146 /* CollectionCell.xib */,
+				D1D8F649285E0AB400D66146 /* AddButtonCell.swift */,
+				D1D8F64A285E0AB400D66146 /* AddButtonCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -268,6 +274,7 @@
 				D1D8F62E285DB75E00D66146 /* ImageCell.xib in Resources */,
 				D13FA82028581A9F0041FCD0 /* Assets.xcassets in Resources */,
 				D1D8F640285DE37500D66146 /* CollectionCell.xib in Resources */,
+				D1D8F64C285E0AB400D66146 /* AddButtonCell.xib in Resources */,
 				D1D8F63A285DE16300D66146 /* AddToListViewController.storyboard in Resources */,
 				D13FA81E28581A9D0041FCD0 /* Main.storyboard in Resources */,
 			);
@@ -333,6 +340,7 @@
 				D13FA81928581A9D0041FCD0 /* SceneDelegate.swift in Sources */,
 				D1D8F648285DEA0000D66146 /* UIViewControllerExtension.swift in Sources */,
 				D1D8F62D285DB75E00D66146 /* ImageCell.swift in Sources */,
+				D1D8F64B285E0AB400D66146 /* AddButtonCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
