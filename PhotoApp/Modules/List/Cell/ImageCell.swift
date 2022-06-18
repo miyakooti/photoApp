@@ -33,6 +33,7 @@ class ImageCell: UICollectionViewCell {
     }
     
     @objc func bookmarkButtonPressed() {
+        print("ぽされたよ")
         delegate?.bookmarkButtonPressed(index: index)
     }
 

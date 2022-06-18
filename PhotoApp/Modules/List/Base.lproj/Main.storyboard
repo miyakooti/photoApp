@@ -87,6 +87,7 @@
                     <connections>
                         <outlet property="collectionView" destination="UUB-Ri-h4K" id="txl-Kt-s70"/>
                         <outlet property="searchButton" destination="Mla-Af-kL8" id="cad-78-9BB"/>
+                        <outlet property="searchTextField" destination="U4e-7h-KFP" id="5hu-rX-Esf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
