@@ -1,3 +1,31 @@
+
+
+# photoApp
+this is private repository. do not make it public.
+
+# thinking
+- instagram
+- flicker
+- pixiv
+- あくまでも課題設定の方が重要なので、実装は最低限で負担なく。企業もそれに関しては求めていない。
+- lightに考える
+- ユーザーのどのような課題を解決しているか？
+
+# persona
+- 女子大生
+- アニオタ
+- 推しキャラがいっぱいいて、pixivやtwitterなどで推しの画像をブックマークしている
+- しかしブックマークはひとつしかないため、キャラがごちゃまぜになってしまい、あとで見返す時に見づらい。
+- ブックマークを複数作成することができれば便利
+  - さらにいうとフォルダ構造で作成することができれば、アニメごとで分けるなどができて便利
+
+# future work
+- リストをシェアすることで、推しを友達に見せびらかす
+- 選択してダウンロード
+
+<!---
+
+
 # photoApp
 this is private repository. do not make it public.
 
