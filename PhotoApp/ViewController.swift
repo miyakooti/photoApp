@@ -6,15 +6,29 @@
 //
 
 import UIKit
+import Alamofire
 
 final class ViewController: UIViewController {
     
-    
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    private var searchResult: CustomSearchedResult?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
         
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        // レイアウト設定
+        let layout = UICollectionViewFlowLayout()
+        let width = (UIScreen.main.bounds.width / 2) - 5
+        layout.itemSize = CGSize(width: width, height: width)
+        collectionView.collectionViewLayout = layout
+
         searchButton.addTarget(nil, action: #selector(searchButtonPressed), for: .touchUpInside)
     }
     
@@ -31,7 +45,7 @@ final class ViewController: UIViewController {
         ]
         print(urlComponents.string!)
 
-        let task = URLSession.shared.dataTask(with: urlComponents.url!) { data, response, error in
+        let task = URLSession.shared.dataTask(with: urlComponents.url!) { [weak self] data, response, error in
             guard let jsonData = data else {
                 print(error as Any)
                 return
@@ -40,15 +54,38 @@ final class ViewController: UIViewController {
             do {
                 let result = try JSONDecoder().decode(CustomSearchedResult.self, from: jsonData)
                 print(result.items[0])
+                self?.searchResult = result
+                DispatchQueue.main.async { [weak self] in
+                    self?.collectionView.reloadData()
+                }
 
-                
             } catch(let e) {
                 print(e)
             }
         }
         task.resume()
+        
     }
 
 
 }
 
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
+        if let searchResult = searchResult {
+            cell.loadImage(urlString: searchResult.items[indexPath.row].link)
+        }
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let searchResult = searchResult else { return 0 }
+        return searchResult.items.count
+    }
+    
+    
+    
+    
+}
