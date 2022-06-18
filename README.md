@@ -11,6 +11,7 @@ this is private repository. do not make it public.
 - lightに考える
 - ユーザーのどのような課題を解決しているか？
 - なるべくアニメとかそういう系のapiを利用したい
+- [pixivは生のapi無い](https://devpixiv.hatenablog.com/entry/2016/11/30/133612)
 
 # persona
 - 女子大生
