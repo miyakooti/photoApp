@@ -8,11 +8,17 @@
 import UIKit
 import Nuke
 
+protocol imageCellDelegate {
+    func bookmarkButtonPressed(index: Int)
+}
+
 class ImageCell: UICollectionViewCell {
     @IBOutlet weak var backVIew: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var bookmarkButton: UIButton!
     var index = 0
+    
+    var delegate: imageCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,7 +33,7 @@ class ImageCell: UICollectionViewCell {
     }
     
     @objc func bookmarkButtonPressed() {
-        print(index)
+        delegate?.bookmarkButtonPressed(index: index)
     }
 
 }

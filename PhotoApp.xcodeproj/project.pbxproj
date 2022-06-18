@@ -23,6 +23,7 @@
 		D1D8F640285DE37500D66146 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1D8F63E285DE37500D66146 /* CollectionCell.xib */; };
 		D1D8F644285DE46B00D66146 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D8F643285DE46B00D66146 /* NSObject.swift */; };
 		D1D8F646285DE47500D66146 /* JsonEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D8F645285DE47500D66146 /* JsonEncoder.swift */; };
+		D1D8F648285DEA0000D66146 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D8F647285DEA0000D66146 /* UIViewControllerExtension.swift */; };
 		EBDEB2214A7A9A7E2C472725 /* Pods_PhotoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B739303C93D23C3FBE6FF173 /* Pods_PhotoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		D1D8F63E285DE37500D66146 /* CollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
 		D1D8F643285DE46B00D66146 /* NSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		D1D8F645285DE47500D66146 /* JsonEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonEncoder.swift; sourceTree = "<group>"; };
+		D1D8F647285DEA0000D66146 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		D28D7DC69BF07DD8FBDAA98C /* Pods-PhotoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoApp.debug.xcconfig"; path = "Target Support Files/Pods-PhotoApp/Pods-PhotoApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				D1D8F643285DE46B00D66146 /* NSObject.swift */,
+				D1D8F647285DEA0000D66146 /* UIViewControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				D13FA81728581A9D0041FCD0 /* AppDelegate.swift in Sources */,
 				D186A149285DAAA400BB4F83 /* CustomSearchedResult.swift in Sources */,
 				D13FA81928581A9D0041FCD0 /* SceneDelegate.swift in Sources */,
+				D1D8F648285DEA0000D66146 /* UIViewControllerExtension.swift in Sources */,
 				D1D8F62D285DB75E00D66146 /* ImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

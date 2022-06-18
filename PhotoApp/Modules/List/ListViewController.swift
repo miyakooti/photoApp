@@ -14,6 +14,8 @@ final class ListViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var searchResult: CustomSearchedResult?
+    private let shadeView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+
     
     
     override func viewDidLoad() {
@@ -74,6 +76,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
+        cell.delegate = self
         cell.index = indexPath.row
 //        if let searchResult = searchResult {
 //            cell.loadImage(urlString: searchResult.items[indexPath.row].link)
@@ -91,6 +94,24 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     
+    
+    
+}
+
+extension ListViewController: imageCellDelegate {
+    func bookmarkButtonPressed(index: Int) {
+        let vc = AddToListViewController.instantiate()
+//        vc.delegate = self
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true, completion: nil)
+        
+        shadeView.backgroundColor = .black
+        shadeView.alpha = 0
+        self.view.addSubview(shadeView)
+        UIView.animate(withDuration: 0.2) {
+            self.shadeView.alpha = 0.3
+        }
+    }
     
     
 }
