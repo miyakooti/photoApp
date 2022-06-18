@@ -10,6 +10,7 @@ this is private repository. do not make it public.
 - あくまでも課題設定の方が重要なので、実装は最低限で負担なく。企業もそれに関しては求めていない。
 - lightに考える
 - ユーザーのどのような課題を解決しているか？
+- なるべくアニメとかそういう系のapiを利用したい
 
 # persona
 - 女子大生
