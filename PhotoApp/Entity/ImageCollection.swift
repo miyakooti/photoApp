@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct ImageCollection {
+struct ImageCollection: Codable {
     let listName: String
     let items: [ListItem]
 }
 
-struct ListItem {
+struct ListItem: Codable {
     let url: String
 }

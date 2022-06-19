@@ -31,21 +31,32 @@ class AddToListViewController: UIViewController {
         backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         let testData = [
-            ImageCollection(listName: "齊藤京子", items: []),
-            ImageCollection(listName: "齊藤京子", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
-            ImageCollection(listName: "齊藤京子", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
-            ImageCollection(listName: "齊藤京子", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
-            ImageCollection(listName: "齊藤京子", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
-            ImageCollection(listName: "齊藤京子", items: []),
+            ImageCollection(listName: "影山優香", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/844/02450174314bb3f596ce3254d0fb3/400_320_102400.jpg")]),
+            ImageCollection(listName: "齊藤京子2", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
+            ImageCollection(listName: "影山優香", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/844/02450174314bb3f596ce3254d0fb3/400_320_102400.jpg")]),
+            ImageCollection(listName: "加藤志穂", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/730/13682c011735c92c06afa89fea784/400_320_102400.jpg")]),
+            ImageCollection(listName: "齊藤京子5", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
+            ImageCollection(listName: "齊藤京子6", items: []),
+            ImageCollection(listName: "齊藤京子7", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
+            ImageCollection(listName: "齊藤京子8", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
+            ImageCollection(listName: "齊藤京子9", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
+            ImageCollection(listName: "齊藤京子10", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
+
         ]
+        
+        JsonEncoder.saveItemsToUserDefaults(list: testData, key: "imageCollection")
+        
+        imageCollection = JsonEncoder.readItemsFromUserUserDefault(key: "imageCollection")
+        
+        
         
         // レイアウト設定
         let layout = UICollectionViewFlowLayout()
-        let width = (collectionView.frame.width / 3) - 30
-        layout.itemSize = CGSize(width: width, height: width)
+        let width = 90
+        layout.itemSize = CGSize(width: width, height: 110)
         collectionView.collectionViewLayout = layout
         
-        imageCollection = testData
+//        imageCollection = testData
         
         collectionView.reloadData()
         
@@ -76,7 +87,6 @@ extension AddToListViewController: UICollectionViewDelegate, UICollectionViewDat
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! CollectionCell
-            cell.width = Int((collectionView.frame.width / 3) - 30)
             if let imageCollection = imageCollection, imageCollection.count > 0 {
                 cell.configure(imageCollection: imageCollection[indexPath.row - 1])
             }
