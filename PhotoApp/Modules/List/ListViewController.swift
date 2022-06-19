@@ -18,8 +18,6 @@ final class ListViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     private let shadeView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
@@ -62,7 +60,6 @@ final class ListViewController: UIViewController {
             // To get `cx`, create your own search engine from https://cse.google.com/cse/create/new
             URLQueryItem(name: "cx", value: "74ba61de5531c3dd3")
         ]
-        print(urlComponents.string!)
 
         let task = URLSession.shared.dataTask(with: urlComponents.url!) { [weak self] data, response, error in
             guard let jsonData = data else {
@@ -79,22 +76,13 @@ final class ListViewController: UIViewController {
                     self?.searchTextField.endEditing(true)
                 }
 
-            } catch(let e) {
-                print(e)
+            } catch(let error) {
+                print(error)
             }
         }
         task.resume()
         
     }
-//    override func didReceiveMemoryWarning() {
-//            super.didReceiveMemoryWarning()
-//        }
-//
-//
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        self.view.endEditing(true)
-//    }
-
 
 }
 
@@ -110,9 +98,6 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
         }
 
-//        if let searchResult = searchResult {
-//            cell.loadImage(urlString: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")
-//        }
         return cell
     }
     
@@ -126,13 +111,11 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     
-    
-    
 }
 
 extension ListViewController: imageCellDelegate {
+    
     func bookmarkButtonPressed(index: Int) {
-        print("押されたのは", index)
         
         let vc = AddToListViewController.instantiate()
 //        vc.delegate = self
@@ -150,7 +133,6 @@ extension ListViewController: imageCellDelegate {
             self.shadeView.alpha = 0.3
         }
     }
-    
     
 }
 

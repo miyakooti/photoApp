@@ -12,43 +12,35 @@ class AddToListViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var backView: UIView!
     
     var imageCollection: [ImageCollection]?
     var pushedUrl = ""
-    @IBOutlet weak var backView: UIView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cancelButton.addTarget(nil, action: #selector(cancelButtonPressed), for: .touchUpInside)
-
         collectionView.register(UINib(nibName: ListIconCell.className, bundle: nil), forCellWithReuseIdentifier: ListIconCell.className)
         collectionView.register(UINib(nibName: AddButtonCell.className, bundle: nil), forCellWithReuseIdentifier: AddButtonCell.className)
-
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        cancelButton.addTarget(nil, action: #selector(cancelButtonPressed), for: .touchUpInside)
         
         backView.layer.cornerRadius = 15
         backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
-        //        imageCollection = testData
-
+//        bring test data
+//        imageCollection = Config.testData
 //        JsonEncoder.saveItemsToUserDefaults(list: testData, key: "imageCollection")
-        
         imageCollection = JsonEncoder.readItemsFromUserUserDefault(key: "imageCollection")
-        
-        
-        
+                
         // レイアウト設定
         let layout = UICollectionViewFlowLayout()
         let width = 90
         layout.itemSize = CGSize(width: width, height: 110)
         collectionView.collectionViewLayout = layout
-        
-        
-        collectionView.reloadData()
-        
+                
     }
     
     @objc
@@ -58,14 +50,11 @@ class AddToListViewController: UIViewController {
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-            if let text = textField.text, text.count > 5 {
-                textField.text = String(text.prefix(5))
+            if let text = textField.text, text.count > 10 {
+                textField.text = String(text.prefix(10))
             }
         }
     
-
-
-
 }
 
 extension AddToListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -74,18 +63,16 @@ extension AddToListViewController: UICollectionViewDelegate, UICollectionViewDat
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddButtonCell.className, for: indexPath) as! AddButtonCell
             cell.delegate = self
             return cell
+            
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListIconCell.className, for: indexPath) as! ListIconCell
             cell.delegate = self
             if let imageCollection = imageCollection, imageCollection.count > 0 {
                 cell.index = indexPath.row - 1
                 cell.configure(imageCollection: imageCollection[indexPath.row - 1])
-
-                
             }
             return cell
         }
-        
 
     }
     
@@ -93,7 +80,6 @@ extension AddToListViewController: UICollectionViewDelegate, UICollectionViewDat
         guard let imageCollection = imageCollection else { return 0 }
         return imageCollection.count + 1
     }
-    
     
 }
 
@@ -129,13 +115,10 @@ extension AddToListViewController: addButtonCellDelegate {
 extension AddToListViewController: ListIconCellDelegate {
     func imageViewTapped(index: Int) {
         // リストに保存する処理
-
-
         guard var imageCollection = imageCollection,
               pushedUrl != "" else { return }
         imageCollection[index].items.insert(ListItem(url: pushedUrl), at: 0)
         JsonEncoder.saveItemsToUserDefaults(list: imageCollection, key: "imageCollection")
-        print("保存完了")
         
         self.dismiss(animated: true, completion: nil)
         NotificationCenter.default.post(name: .shouldCloseShade, object: nil)
@@ -145,15 +128,7 @@ extension AddToListViewController: ListIconCellDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
             SVProgressHUD.dismiss()
         }
-        
-        
 
-        
         
     }
-}
-
-
-extension Notification.Name {
-    static let shouldCloseShade = Notification.Name("shouldCloseShade")
 }

@@ -16,15 +16,13 @@ class ImageCell: UICollectionViewCell {
     @IBOutlet weak var backVIew: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var bookmarkButton: UIButton!
+
     var index = 0
-    
     var delegate: imageCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         bookmarkButton.addTarget(nil, action: #selector(bookmarkButtonPressed), for: .touchUpInside)
-        // Initialization code
     }
     
     func loadImage(urlString: String) {
@@ -33,7 +31,6 @@ class ImageCell: UICollectionViewCell {
     }
     
     @objc func bookmarkButtonPressed() {
-        print("ぽされたよ")
         delegate?.bookmarkButtonPressed(index: index)
     }
 
