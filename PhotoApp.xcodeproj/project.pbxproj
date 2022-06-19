@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		D1393F2C285EBEBC0073981D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1393F2B285EBEBC0073981D /* Config.swift */; };
 		D1393F2E285ECA9C0073981D /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1393F2D285ECA9C0073981D /* NotificationName.swift */; };
+		D1393F32285ECC370073981D /* OshiCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1393F30285ECC370073981D /* OshiCollectionViewController.swift */; };
+		D1393F33285ECC370073981D /* OshiCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1393F31285ECC370073981D /* OshiCollectionViewController.xib */; };
+		D1393F35285ECEB80073981D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1393F34285ECEB80073981D /* String.swift */; };
+		D1393F37285ED1E90073981D /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1393F36285ED1E90073981D /* UIImageView.swift */; };
 		D13FA81728581A9D0041FCD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FA81628581A9D0041FCD0 /* AppDelegate.swift */; };
 		D13FA81928581A9D0041FCD0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FA81828581A9D0041FCD0 /* SceneDelegate.swift */; };
 		D13FA81B28581A9D0041FCD0 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FA81A28581A9D0041FCD0 /* ListViewController.swift */; };
@@ -18,7 +22,7 @@
 		D186A149285DAAA400BB4F83 /* CustomSearchedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D186A148285DAAA400BB4F83 /* CustomSearchedResult.swift */; };
 		D1D8F62D285DB75E00D66146 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D8F62B285DB75E00D66146 /* ImageCell.swift */; };
 		D1D8F62E285DB75E00D66146 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1D8F62C285DB75E00D66146 /* ImageCell.xib */; };
-		D1D8F636285DE08400D66146 /* ImageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D8F635285DE08400D66146 /* ImageCollection.swift */; };
+		D1D8F636285DE08400D66146 /* OshiCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D8F635285DE08400D66146 /* OshiCollection.swift */; };
 		D1D8F638285DE15000D66146 /* AddToListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D8F637285DE15000D66146 /* AddToListViewController.swift */; };
 		D1D8F63A285DE16300D66146 /* AddToListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1D8F639285DE16300D66146 /* AddToListViewController.storyboard */; };
 		D1D8F63F285DE37500D66146 /* ListIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D8F63D285DE37500D66146 /* ListIconCell.swift */; };
@@ -36,6 +40,10 @@
 		B739303C93D23C3FBE6FF173 /* Pods_PhotoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1393F2B285EBEBC0073981D /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		D1393F2D285ECA9C0073981D /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
+		D1393F30285ECC370073981D /* OshiCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OshiCollectionViewController.swift; sourceTree = "<group>"; };
+		D1393F31285ECC370073981D /* OshiCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OshiCollectionViewController.xib; sourceTree = "<group>"; };
+		D1393F34285ECEB80073981D /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		D1393F36285ED1E90073981D /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		D13FA81328581A9D0041FCD0 /* PhotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13FA81628581A9D0041FCD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D13FA81828581A9D0041FCD0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,7 +55,7 @@
 		D186A148285DAAA400BB4F83 /* CustomSearchedResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchedResult.swift; sourceTree = "<group>"; };
 		D1D8F62B285DB75E00D66146 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		D1D8F62C285DB75E00D66146 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
-		D1D8F635285DE08400D66146 /* ImageCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollection.swift; sourceTree = "<group>"; };
+		D1D8F635285DE08400D66146 /* OshiCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OshiCollection.swift; sourceTree = "<group>"; };
 		D1D8F637285DE15000D66146 /* AddToListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToListViewController.swift; sourceTree = "<group>"; };
 		D1D8F639285DE16300D66146 /* AddToListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddToListViewController.storyboard; sourceTree = "<group>"; };
 		D1D8F63D285DE37500D66146 /* ListIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListIconCell.swift; sourceTree = "<group>"; };
@@ -79,6 +87,15 @@
 				78725F091182E90EB8A5B857 /* Pods-PhotoApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D1393F2F285ECBCF0073981D /* OshiCollection */ = {
+			isa = PBXGroup;
+			children = (
+				D1393F30285ECC370073981D /* OshiCollectionViewController.swift */,
+				D1393F31285ECC370073981D /* OshiCollectionViewController.xib */,
+			);
+			path = OshiCollection;
 			sourceTree = "<group>";
 		};
 		D13FA80A28581A9D0041FCD0 = {
@@ -137,7 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				D186A148285DAAA400BB4F83 /* CustomSearchedResult.swift */,
-				D1D8F635285DE08400D66146 /* ImageCollection.swift */,
+				D1D8F635285DE08400D66146 /* OshiCollection.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -156,6 +173,7 @@
 				D1393F2B285EBEBC0073981D /* Config.swift */,
 				D1D8F634285DE02F00D66146 /* Launch */,
 				D1D8F62F285DDFC900D66146 /* List */,
+				D1393F2F285ECBCF0073981D /* OshiCollection */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -201,9 +219,11 @@
 		D1D8F642285DE44900D66146 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D1393F34285ECEB80073981D /* String.swift */,
 				D1D8F643285DE46B00D66146 /* NSObject.swift */,
 				D1D8F647285DEA0000D66146 /* UIViewControllerExtension.swift */,
 				D1393F2D285ECA9C0073981D /* NotificationName.swift */,
+				D1393F36285ED1E90073981D /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -282,6 +302,7 @@
 				D1D8F640285DE37500D66146 /* ListIconCell.xib in Resources */,
 				D1D8F64C285E0AB400D66146 /* AddButtonCell.xib in Resources */,
 				D1D8F63A285DE16300D66146 /* AddToListViewController.storyboard in Resources */,
+				D1393F33285ECC370073981D /* OshiCollectionViewController.xib in Resources */,
 				D13FA81E28581A9D0041FCD0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,8 +360,9 @@
 				D13FA81B28581A9D0041FCD0 /* ListViewController.swift in Sources */,
 				D1D8F638285DE15000D66146 /* AddToListViewController.swift in Sources */,
 				D1393F2E285ECA9C0073981D /* NotificationName.swift in Sources */,
-				D1D8F636285DE08400D66146 /* ImageCollection.swift in Sources */,
+				D1D8F636285DE08400D66146 /* OshiCollection.swift in Sources */,
 				D1D8F644285DE46B00D66146 /* NSObject.swift in Sources */,
+				D1393F35285ECEB80073981D /* String.swift in Sources */,
 				D1D8F63F285DE37500D66146 /* ListIconCell.swift in Sources */,
 				D1393F2C285EBEBC0073981D /* Config.swift in Sources */,
 				D13FA81728581A9D0041FCD0 /* AppDelegate.swift in Sources */,
@@ -348,6 +370,8 @@
 				D13FA81928581A9D0041FCD0 /* SceneDelegate.swift in Sources */,
 				D1D8F648285DEA0000D66146 /* UIViewControllerExtension.swift in Sources */,
 				D1D8F62D285DB75E00D66146 /* ImageCell.swift in Sources */,
+				D1393F32285ECC370073981D /* OshiCollectionViewController.swift in Sources */,
+				D1393F37285ED1E90073981D /* UIImageView.swift in Sources */,
 				D1D8F64B285E0AB400D66146 /* AddButtonCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

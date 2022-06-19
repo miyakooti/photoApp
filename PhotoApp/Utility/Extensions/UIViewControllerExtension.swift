@@ -16,7 +16,6 @@ extension StoryBoardInstantiatable where Self: UIViewController {
 
     static func instantiate() -> Self {
         let storyboard = UIStoryboard(name: self.className, bundle: nil)
-        print(self.className)
         return storyboard.instantiateInitialViewController() as! Self
     }
 

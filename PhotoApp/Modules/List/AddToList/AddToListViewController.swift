@@ -14,7 +14,7 @@ class AddToListViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var backView: UIView!
     
-    var imageCollection: [ImageCollection]?
+    var oshiCollections: [OshiCollection]?
     var pushedUrl = ""
     
     override func viewDidLoad() {
@@ -31,9 +31,9 @@ class AddToListViewController: UIViewController {
         backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
 //        bring test data
-//        imageCollection = Config.testData
-//        JsonEncoder.saveItemsToUserDefaults(list: testData, key: "imageCollection")
-        imageCollection = JsonEncoder.readItemsFromUserUserDefault(key: "imageCollection")
+//        oshiCollection = Config.testData
+//        JsonEncoder.saveItemsToUserDefaults(list: testData, key: "oshiCollection")
+        oshiCollections = JsonEncoder.readItemsFromUserUserDefault(key: .oshiCollectionKey)
                 
         // レイアウト設定
         let layout = UICollectionViewFlowLayout()
@@ -41,6 +41,11 @@ class AddToListViewController: UIViewController {
         layout.itemSize = CGSize(width: width, height: 110)
         collectionView.collectionViewLayout = layout
                 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
     }
     
     @objc
@@ -67,9 +72,10 @@ extension AddToListViewController: UICollectionViewDelegate, UICollectionViewDat
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListIconCell.className, for: indexPath) as! ListIconCell
             cell.delegate = self
-            if let imageCollection = imageCollection, imageCollection.count > 0 {
+            cell.cornerRadius = (90.0 - 5 * 2) / 2
+            if let oshiCollections = oshiCollections, oshiCollections.count > 0 {
                 cell.index = indexPath.row - 1
-                cell.configure(imageCollection: imageCollection[indexPath.row - 1])
+                cell.configure(oshiCollection: oshiCollections[indexPath.row - 1])
             }
             return cell
         }
@@ -77,23 +83,23 @@ extension AddToListViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let imageCollection = imageCollection else { return 0 }
-        return imageCollection.count + 1
+        guard let oshiCollections = oshiCollections else { return 0 }
+        return oshiCollections.count + 1
     }
     
 }
 
 extension AddToListViewController: addButtonCellDelegate {
     func plusButtonTapped() {
-        let alert: UIAlertController = UIAlertController(title: "新規リスト", message: "リストの名前を入力してください", preferredStyle: .alert)
+        let alert: UIAlertController = UIAlertController(title: "新規追加", message: "推しフォルダの名前を入力してください", preferredStyle: .alert)
         alert.addTextField(configurationHandler: nil)
-        alert.textFields?.first?.placeholder = "リスト1"
+        alert.textFields?.first?.placeholder = "推しフォルダ1"
         alert.textFields?.first?.addTarget(self, action: #selector(textFieldDidChange), for: .allEditingEvents)
         let saveAction: UIAlertAction = UIAlertAction(title: "決定", style: .default, handler: { [weak self] (_: UIAlertAction!) -> Void in
             guard let text = alert.textFields?.first?.text, !text.isEmpty else { return }
-            self?.imageCollection?.insert(ImageCollection(listName: text, items: []), at: 0)
-            guard let imageCollection = self?.imageCollection else { return }
-            JsonEncoder.saveItemsToUserDefaults(list: imageCollection, key: "imageCollection")
+            self?.oshiCollections?.insert(OshiCollection(listName: text, items: []), at: 0)
+            guard let oshiCollections = self?.oshiCollections else { return }
+            JsonEncoder.saveItemsToUserDefaults(list: oshiCollections, key: .oshiCollectionKey)
             SVProgressHUD.showSuccess(withStatus: "推しフォルダを追加しました")
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
                 SVProgressHUD.dismiss()
@@ -115,10 +121,10 @@ extension AddToListViewController: addButtonCellDelegate {
 extension AddToListViewController: ListIconCellDelegate {
     func imageViewTapped(index: Int) {
         // リストに保存する処理
-        guard var imageCollection = imageCollection,
+        guard var oshiCollections = oshiCollections,
               pushedUrl != "" else { return }
-        imageCollection[index].items.insert(ListItem(url: pushedUrl), at: 0)
-        JsonEncoder.saveItemsToUserDefaults(list: imageCollection, key: "imageCollection")
+        oshiCollections[index].items.insert(ListItem(url: pushedUrl), at: 0)
+        JsonEncoder.saveItemsToUserDefaults(list: oshiCollections, key: .oshiCollectionKey)
         
         self.dismiss(animated: true, completion: nil)
         NotificationCenter.default.post(name: .shouldCloseShade, object: nil)

@@ -20,6 +20,7 @@ class ListIconCell: UICollectionViewCell {
     
     var delegate: ListIconCellDelegate?
     var index = 0
+    var cornerRadius = 0.0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,11 +32,11 @@ class ListIconCell: UICollectionViewCell {
         imageView.addGestureRecognizer(iconTap)
     }
     
-    func configure(imageCollection: ImageCollection) {
-        imageView.layer.cornerRadius = CGFloat((90 - 5 * 2) / 2)
-        label.text = imageCollection.listName
+    func configure(oshiCollection: OshiCollection) {
+        imageView.layer.cornerRadius = cornerRadius
+        label.text = oshiCollection.listName
 
-        if let firstItem = imageCollection.items.first {
+        if let firstItem = oshiCollection.items.first {
             guard let url = URL(string: firstItem.url) else { return }
             Nuke.loadImage(with: url, into: imageView)
         }

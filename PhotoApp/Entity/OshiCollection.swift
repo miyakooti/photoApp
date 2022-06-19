@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ImageCollection: Codable {
+struct OshiCollection: Codable {
     let listName: String
     var items: [ListItem]
 }
