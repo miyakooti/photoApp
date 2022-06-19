@@ -11,26 +11,38 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AddButtonCell" id="gTV-IL-0wX" customClass="AddButtonCell" customModule="PhotoApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+            <rect key="frame" x="0.0" y="0.0" width="80" height="95"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                <rect key="frame" x="0.0" y="0.0" width="80" height="95"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x8d-go-fUu">
-                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="95"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jvY-OP-jyB">
-                                <rect key="frame" x="5" y="5.5" width="70" height="69"/>
+                                <rect key="frame" x="5" y="5.5" width="70" height="68"/>
                                 <color key="tintColor" systemColor="systemTealColor"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新規追加1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="9p9-IC-4uQ">
+                                <rect key="frame" x="0.0" y="74" width="80" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="U4c-Dr-RDb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="jvY-OP-jyB" secondAttribute="bottom" constant="5" id="59S-kb-Rw2"/>
+                            <constraint firstItem="9p9-IC-4uQ" firstAttribute="top" secondItem="jvY-OP-jyB" secondAttribute="bottom" id="7UC-L9-S2M"/>
                             <constraint firstItem="jvY-OP-jyB" firstAttribute="top" secondItem="x8d-go-fUu" secondAttribute="top" constant="5" id="9ad-L8-H5z"/>
                             <constraint firstItem="jvY-OP-jyB" firstAttribute="leading" secondItem="x8d-go-fUu" secondAttribute="leading" constant="5" id="9vU-OP-xkb"/>
                             <constraint firstAttribute="trailing" secondItem="jvY-OP-jyB" secondAttribute="trailing" constant="5" id="AjI-PW-vpo"/>
+                            <constraint firstItem="9p9-IC-4uQ" firstAttribute="leading" secondItem="x8d-go-fUu" secondAttribute="leading" id="fMO-DC-WPY"/>
+                            <constraint firstAttribute="bottom" secondItem="9p9-IC-4uQ" secondAttribute="bottom" id="lT8-Cy-efw"/>
+                            <constraint firstAttribute="trailing" secondItem="9p9-IC-4uQ" secondAttribute="trailing" id="mMd-wM-mOD"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -45,7 +57,7 @@
             <connections>
                 <outlet property="plusImage" destination="jvY-OP-jyB" id="y3h-L3-icU"/>
             </connections>
-            <point key="canvasLocation" x="139" y="109"/>
+            <point key="canvasLocation" x="137.68115942028987" y="108.48214285714285"/>
         </collectionViewCell>
     </objects>
     <resources>

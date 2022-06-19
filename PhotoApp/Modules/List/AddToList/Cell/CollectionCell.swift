@@ -12,6 +12,7 @@ class CollectionCell: UICollectionViewCell {
 
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var label: UILabel!
     
     var width = 0
     
@@ -21,7 +22,8 @@ class CollectionCell: UICollectionViewCell {
     }
     
     func configure(imageCollection: ImageCollection) {
-        imageView.layer.cornerRadius = CGFloat(width / 2)
+        imageView.layer.cornerRadius = CGFloat((90 - 5 * 2) / 2)
+        label.text = imageCollection.listName
 
         if let firstItem = imageCollection.items.first {
             guard let url = URL(string: firstItem.url) else { return }
