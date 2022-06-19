@@ -28,6 +28,8 @@ this is private repository. do not make it public.
 # cites
 - https://qiita.com/ukandori/items/234156f97eb6dad77966
 - https://qiita.com/takasek/items/3f727f976e27daf00309
+- https://techlife.cookpad.com/entry/2017/06/29/190000
+- https://swiswiswift.com/2020-11-09/
 
 # 学んだこと
 - google画像検索apiの使い方
