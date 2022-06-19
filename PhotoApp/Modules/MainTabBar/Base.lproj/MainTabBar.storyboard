@@ -182,6 +182,7 @@
                     <navigationItem key="navigationItem" id="QaY-I7-Toe"/>
                     <connections>
                         <outlet property="collectionView" destination="20X-ZO-gIa" id="VjM-G9-i89"/>
+                        <outlet property="howToUseLabel" destination="9ll-KP-mhH" id="3g4-3h-0C1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uJT-5P-419" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

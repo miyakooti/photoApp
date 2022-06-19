@@ -7,31 +7,21 @@
 
 import UIKit
 
-class OshiCollectionViewController: UIViewController {
+final class OshiCollectionViewController: UIViewController {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet weak var howToUseLabel: UILabel!
     
-    var oshiCollections: [OshiCollection]?
+    private var oshiCollections: [OshiCollection]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.isNavigationBarHidden = true
-        
-        
         collectionView.register(UINib(nibName: ListIconCell.className, bundle: nil), forCellWithReuseIdentifier: ListIconCell.className)
-
-        
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        // レイアウト設定
-        let layout = UICollectionViewFlowLayout()
-        let width = 110
-
-        layout.itemSize = CGSize(width: width, height: 134)
-        collectionView.collectionViewLayout = layout
-        
+        setUpViews()
 
     }
     
@@ -40,22 +30,33 @@ class OshiCollectionViewController: UIViewController {
         oshiCollections = JsonEncoder.readItemsFromUserUserDefault(key: .oshiCollectionKey)
         collectionView.reloadData()
     }
+    
+    private func setUpViews() {
+        self.navigationController?.isNavigationBarHidden = true
+        // レイアウト設定
+        let layout = UICollectionViewFlowLayout()
+        let width = 90
+        layout.itemSize = CGSize(width: width, height: 110)
+        collectionView.collectionViewLayout = layout
+    }
 
 }
 
 
 extension OshiCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListIconCell.className, for: indexPath) as! ListIconCell
         cell.delegate = self
         cell.cornerRadius = 20
         if let oshiCollections = oshiCollections, oshiCollections.count > 0 {
+            howToUseLabel.isHidden = true
             cell.index = indexPath.row
             cell.configure(oshiCollection: oshiCollections[indexPath.row])
+        } else {
+            howToUseLabel.isHidden = false
         }
         return cell
-        
 
     }
     

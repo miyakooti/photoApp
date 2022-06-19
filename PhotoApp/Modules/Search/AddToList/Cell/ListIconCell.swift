@@ -12,11 +12,11 @@ protocol ListIconCellDelegate {
     func imageViewTapped(index: Int)
 }
 
-class ListIconCell: UICollectionViewCell {
+final class ListIconCell: UICollectionViewCell {
 
-    @IBOutlet weak var backView: UIView!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet private weak var backView: UIView!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var label: UILabel!
     
     var delegate: ListIconCellDelegate?
     var index = 0
@@ -24,10 +24,10 @@ class ListIconCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        imageView.clipsToBounds = true
         
         let iconTap = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
         iconTap.cancelsTouchesInView = false
+        imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(iconTap)
     }

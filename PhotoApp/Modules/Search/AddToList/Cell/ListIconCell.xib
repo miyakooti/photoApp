@@ -60,7 +60,7 @@
                 <outlet property="imageView" destination="fli-kd-2Li" id="nOt-O5-Z86"/>
                 <outlet property="label" destination="Dsu-H0-7yF" id="gXh-ci-NK3"/>
             </connections>
-            <point key="canvasLocation" x="159.42028985507247" y="93.415178571428569"/>
+            <point key="canvasLocation" x="159.42028985507247" y="93.080357142857139"/>
         </collectionViewCell>
     </objects>
     <resources>

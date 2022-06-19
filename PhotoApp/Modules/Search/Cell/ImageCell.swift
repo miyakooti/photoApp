@@ -12,10 +12,10 @@ protocol imageCellDelegate {
     func bookmarkButtonPressed(index: Int)
 }
 
-class ImageCell: UICollectionViewCell {
-    @IBOutlet weak var backVIew: UIView!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var bookmarkButton: UIButton!
+final class ImageCell: UICollectionViewCell {
+    @IBOutlet private weak var backVIew: UIView!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var bookmarkButton: UIButton!
 
     var index = 0
     var delegate: imageCellDelegate?
@@ -34,7 +34,7 @@ class ImageCell: UICollectionViewCell {
         Nuke.loadImage(with: url, into: imageView)
     }
     
-    @objc func bookmarkButtonPressed() {
+    @objc private func bookmarkButtonPressed() {
         delegate?.bookmarkButtonPressed(index: index)
     }
 

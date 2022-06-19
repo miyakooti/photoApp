@@ -8,13 +8,13 @@
 import UIKit
 import SVProgressHUD
 
-class AddToListViewController: UIViewController {
+final class AddToListViewController: UIViewController {
 
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var backView: UIView!
+    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var cancelButton: UIButton!
+    @IBOutlet private weak var backView: UIView!
     
-    var oshiCollections: [OshiCollection]?
+    private var oshiCollections: [OshiCollection]?
     var pushedUrl = ""
     
     override func viewDidLoad() {
@@ -27,19 +27,7 @@ class AddToListViewController: UIViewController {
         
         cancelButton.addTarget(nil, action: #selector(cancelButtonPressed), for: .touchUpInside)
         
-        backView.layer.cornerRadius = 15
-        backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        
-//        bring test data
-//        oshiCollection = Config.testData
-//        JsonEncoder.saveItemsToUserDefaults(list: testData, key: "oshiCollection")
-        oshiCollections = JsonEncoder.readItemsFromUserUserDefault(key: .oshiCollectionKey)
-                
-        // レイアウト設定
-        let layout = UICollectionViewFlowLayout()
-        let width = 90
-        layout.itemSize = CGSize(width: width, height: 110)
-        collectionView.collectionViewLayout = layout
+        setUpViews()
                 
     }
     
@@ -55,10 +43,26 @@ class AddToListViewController: UIViewController {
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-            if let text = textField.text, text.count > 10 {
-                textField.text = String(text.prefix(10))
-            }
+        if let text = textField.text, text.count > 10 {
+            textField.text = String(text.prefix(10))
         }
+    }
+    
+    private func setUpViews() {
+        backView.layer.cornerRadius = 15
+        backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+//        bring test data
+//        oshiCollection = Config.testData
+//        JsonEncoder.saveItemsToUserDefaults(list: testData, key: "oshiCollection")
+        oshiCollections = JsonEncoder.readItemsFromUserUserDefault(key: .oshiCollectionKey)
+                
+        // レイアウト設定
+        let layout = UICollectionViewFlowLayout()
+        let width = 90
+        layout.itemSize = CGSize(width: width, height: 110)
+        collectionView.collectionViewLayout = layout
+    }
     
 }
 
@@ -72,7 +76,7 @@ extension AddToListViewController: UICollectionViewDelegate, UICollectionViewDat
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListIconCell.className, for: indexPath) as! ListIconCell
             cell.delegate = self
-            cell.cornerRadius = (90.0 - 5 * 2) / 2
+            cell.cornerRadius = 15
             if let oshiCollections = oshiCollections, oshiCollections.count > 0 {
                 cell.index = indexPath.row - 1
                 cell.configure(oshiCollection: oshiCollections[indexPath.row - 1])
@@ -100,7 +104,7 @@ extension AddToListViewController: addButtonCellDelegate {
             self?.oshiCollections?.insert(OshiCollection(listName: text, items: []), at: 0)
             guard let oshiCollections = self?.oshiCollections else { return }
             JsonEncoder.saveItemsToUserDefaults(list: oshiCollections, key: .oshiCollectionKey)
-            SVProgressHUD.showSuccess(withStatus: "推しフォルダを追加しました")
+            SVProgressHUD.showSuccess(withStatus: "推しフォルダを追加しました！")
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
                 SVProgressHUD.dismiss()
             }
@@ -125,16 +129,13 @@ extension AddToListViewController: ListIconCellDelegate {
               pushedUrl != "" else { return }
         oshiCollections[index].items.insert(ListItem(url: pushedUrl), at: 0)
         JsonEncoder.saveItemsToUserDefaults(list: oshiCollections, key: .oshiCollectionKey)
-        
         self.dismiss(animated: true, completion: nil)
         NotificationCenter.default.post(name: .shouldCloseShade, object: nil)
         
         SVProgressHUD.showSuccess(withStatus: "推しを保存しました")
-
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
             SVProgressHUD.dismiss()
         }
 
-        
     }
 }

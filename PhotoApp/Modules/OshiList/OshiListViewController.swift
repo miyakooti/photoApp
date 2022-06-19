@@ -7,23 +7,29 @@
 
 import UIKit
 
-class OshiListViewController: UIViewController {
-
-
-    @IBOutlet weak var backImage: UIImageView!
+final class OshiListViewController: UIViewController {
+    
+    @IBOutlet private weak var backImage: UIImageView!
     
     var oshiCollection: OshiCollection?
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
-        
+        collectionView.register(UINib(nibName: ImageCell.className, bundle: nil), forCellWithReuseIdentifier: ImageCell.className)
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        setUpViews()
+    }
+    
+    @objc private func backImageTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func setUpViews() {
         // レイアウト設定
         let layout = UICollectionViewFlowLayout()
         let width = (UIScreen.main.bounds.width / 2) - 5
@@ -31,20 +37,13 @@ class OshiListViewController: UIViewController {
         layout.minimumLineSpacing = 0
         collectionView.collectionViewLayout = layout
         
+        titleLabel.text = oshiCollection?.listName
         let iconTap = UITapGestureRecognizer(target: self, action: #selector(backImageTapped))
         iconTap.cancelsTouchesInView = false
         backImage.isUserInteractionEnabled = true
         backImage.addGestureRecognizer(iconTap)
-        print(oshiCollection?.items.count)
-        titleLabel.text = oshiCollection?.listName
     }
     
-    @objc func backImageTapped() {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-
-
 }
 
 extension OshiListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -56,11 +55,10 @@ extension OshiListViewController: UICollectionViewDelegate, UICollectionViewData
         cell.isViewMode = true
         if !Config.isDebug {
             if let oshiCollection = oshiCollection {
-                cell.loadImage(urlString:
-                                oshiCollection.items[indexPath.row].url)
+                cell.loadImage(urlString: oshiCollection.items[indexPath.row].url)
             }
         }
-
+        
         return cell
     }
     
@@ -69,19 +67,13 @@ extension OshiListViewController: UICollectionViewDelegate, UICollectionViewData
             guard let oshiCollection = oshiCollection else { return 0 }
             return oshiCollection.items.count
         }
-
         return 20
     }
-    
-    
-    
     
 }
 
 extension OshiListViewController: imageCellDelegate {
-    
     func bookmarkButtonPressed(index: Int) {
         return
     }
-    
 }

@@ -11,16 +11,15 @@
         <!--Oshi List View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="OshiListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="OshiListViewController" customModule="PhotoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="キャラクター名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYY-VJ-Viz">
-                                <rect key="frame" x="30" y="64" width="354" height="21"/>
+                                <rect key="frame" x="30" y="64" width="354" height="27"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="CqT-bP-JIk"/>
+                                    <constraint firstAttribute="height" constant="27" id="CqT-bP-JIk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                                 <color key="textColor" red="0.48627450979999998" green="0.78039215689999997" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -64,7 +63,7 @@
                             <constraint firstItem="VzS-3W-yB0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Nbc-MC-uch"/>
                             <constraint firstAttribute="bottomMargin" secondItem="VzS-3W-yB0" secondAttribute="bottom" id="Owx-Cg-bsP"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VzS-3W-yB0" secondAttribute="trailing" id="QMM-FE-Ymw"/>
-                            <constraint firstItem="VzS-3W-yB0" firstAttribute="top" secondItem="wYY-VJ-Viz" secondAttribute="bottom" constant="20" id="azT-BX-uKM"/>
+                            <constraint firstItem="VzS-3W-yB0" firstAttribute="top" secondItem="wYY-VJ-Viz" secondAttribute="bottom" constant="14" id="azT-BX-uKM"/>
                             <constraint firstItem="CRM-7B-q5A" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="vsM-dY-8iL"/>
                             <constraint firstItem="wYY-VJ-Viz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="xkj-Po-c2A"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wYY-VJ-Viz" secondAttribute="trailing" constant="30" id="yhZ-tt-jf2"/>
@@ -76,6 +75,7 @@
                         <outlet property="titleLabel" destination="wYY-VJ-Viz" id="0jq-Rq-1ZY"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-26.086956521739133" y="118.52678571428571"/>
         </scene>

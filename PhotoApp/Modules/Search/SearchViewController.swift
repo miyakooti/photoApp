@@ -11,33 +11,19 @@ import SwiftUI
 
 final class SearchViewController: UIViewController {
     
-    @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var howToUseLabel: UILabel!
+    @IBOutlet private weak var searchButton: UIButton!
+    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var howToUseLabel: UILabel!
+    @IBOutlet private weak var searchTextField: UITextField!
     
     private var searchResult: CustomSearchedResult?
-    @IBOutlet weak var searchTextField: UITextField!
     private let shadeView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        UITabBar.appearance().tintColor = UIColor.init(hex: "7CC7E8")
-
-        collectionView.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        searchTextField.delegate = self
-        
-        // レイアウト設定
-        let layout = UICollectionViewFlowLayout()
-        let width = (UIScreen.main.bounds.width / 2) - 5
-        layout.itemSize = CGSize(width: width, height: width + 5)
-        layout.minimumLineSpacing = 0
-        collectionView.collectionViewLayout = layout
-
-        searchButton.addTarget(nil, action: #selector(search), for: .touchUpInside)
+        setUpViews()
+        collectionView.register(UINib(nibName: ImageCell.className, bundle: nil), forCellWithReuseIdentifier: ImageCell.className)
+        searchButton.addTarget(nil, action: #selector(fetchSearchResult), for: .touchUpInside)
         
         NotificationCenter.default.addObserver(self, selector: #selector(onShouldCloseShade(_:)), name: .shouldCloseShade, object: nil)
 
@@ -54,7 +40,8 @@ final class SearchViewController: UIViewController {
         }
     }
     
-    @objc private func search() {
+    @objc
+    private func fetchSearchResult() {
         guard searchTextField.text != "", let query = searchTextField.text else { return }
         var urlComponents = URLComponents(string: "https://www.googleapis.com/customsearch/v1")!
         urlComponents.queryItems = [
@@ -74,7 +61,6 @@ final class SearchViewController: UIViewController {
 
             do {
                 let result = try JSONDecoder().decode(CustomSearchedResult.self, from: jsonData)
-                print(result.items[0])
                 self?.searchResult = result
                 DispatchQueue.main.async { [weak self] in
                     self?.collectionView.reloadData()
@@ -88,13 +74,27 @@ final class SearchViewController: UIViewController {
         task.resume()
         
     }
+    
+    private func setUpViews() {
+        UITabBar.appearance().tintColor = UIColor.init(hex: "7CC7E8")
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        searchTextField.delegate = self
+        
+        // レイアウト設定
+        let layout = UICollectionViewFlowLayout()
+        let width = (UIScreen.main.bounds.width / 2) - 5
+        layout.itemSize = CGSize(width: width, height: width + 5)
+        layout.minimumLineSpacing = 0
+        collectionView.collectionViewLayout = layout
+    }
 
 }
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCell.className, for: indexPath) as! ImageCell
         cell.delegate = self
         cell.index = indexPath.row
         if !Config.isDebug {
@@ -114,7 +114,6 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
             guard let searchResult = searchResult else { return 0 }
             return searchResult.items.count
         }
-
         return 20
     }
     
@@ -124,9 +123,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 extension SearchViewController: imageCellDelegate {
     
     func bookmarkButtonPressed(index: Int) {
-        
         let vc = AddToListViewController.instantiate()
-//        vc.delegate = self
         vc.modalPresentationStyle = .overCurrentContext
         if !Config.isDebug {
             guard let link = searchResult?.items[index].link else { return }
@@ -146,7 +143,7 @@ extension SearchViewController: imageCellDelegate {
 
 extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        search()
+        fetchSearchResult()
         return true
     }
     

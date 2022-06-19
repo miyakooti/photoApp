@@ -11,11 +11,12 @@ protocol addButtonCellDelegate {
     func plusButtonTapped()
 }
 
-class AddButtonCell: UICollectionViewCell {
+final class AddButtonCell: UICollectionViewCell {
     
+    @IBOutlet private weak var plusImage: UIImageView!
+
     var delegate: addButtonCellDelegate?
 
-    @IBOutlet weak var plusImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -30,5 +31,4 @@ class AddButtonCell: UICollectionViewCell {
         
     }
     
-
 }
