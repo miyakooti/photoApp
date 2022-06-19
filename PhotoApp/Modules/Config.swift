@@ -24,4 +24,6 @@ struct Config {
         OshiCollection(listName: "齊藤京子10", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
 
     ]
+    
+    static let defaultListIconImageUrl = "https://raw.githubusercontent.com/miyakooti/kousuke_portofolio/master/img/person-fill.png"
 }

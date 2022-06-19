@@ -39,11 +39,13 @@ class ListIconCell: UICollectionViewCell {
         if let firstItem = oshiCollection.items.first {
             guard let url = URL(string: firstItem.url) else { return }
             Nuke.loadImage(with: url, into: imageView)
+        } else {
+            Nuke.loadImage(with: Config.defaultListIconImageUrl, into: imageView)
         }
 
     }
     
-    @objc func imageViewTapped() {
+    @objc private func imageViewTapped() {
         delegate?.imageViewTapped(index: index)
     }
 
