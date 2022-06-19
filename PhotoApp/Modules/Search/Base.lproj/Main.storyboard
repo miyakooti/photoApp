@@ -12,12 +12,12 @@
         <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ListViewController" customModule="PhotoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="PhotoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ooN-TK-8vs">
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ooN-TK-8vs">
                                 <rect key="frame" x="0.0" y="44" width="414" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mla-Af-kL8">
@@ -28,7 +28,9 @@
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system" title=""/>
+                                        <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system" title="">
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="誰をお探しですか？" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="U4e-7h-KFP">
                                         <rect key="frame" x="30" y="10" width="284" height="30"/>
@@ -37,7 +39,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="U4e-7h-KFP" firstAttribute="top" secondItem="ooN-TK-8vs" secondAttribute="top" constant="10" id="0ZX-Wp-y7J"/>
                                     <constraint firstItem="Mla-Af-kL8" firstAttribute="leading" secondItem="U4e-7h-KFP" secondAttribute="trailing" constant="30" id="6Uf-70-qDR"/>
@@ -50,7 +52,7 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UUB-Ri-h4K">
                                 <rect key="frame" x="0.0" y="94" width="414" height="719"/>
-                                <color key="backgroundColor" systemColor="systemBrownColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="HSc-uW-mvq">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -65,7 +67,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" red="0.93333333330000001" green="0.41960784309999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -82,7 +84,9 @@
                             <constraint firstItem="ooN-TK-8vs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vj3-eE-EcZ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Uwj-8T-PcG"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="Uwj-8T-PcG">
+                        <color key="badgeColor" red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="D0T-Kh-X41"/>
                     <connections>
                         <outlet property="collectionView" destination="UUB-Ri-h4K" id="txl-Kt-s70"/>
@@ -94,7 +98,7 @@
             </objects>
             <point key="canvasLocation" x="1778.2608695652175" y="-17.410714285714285"/>
         </scene>
-        <!--Item-->
+        <!--Oshi Collection View Controller-->
         <scene sceneID="Xmt-jb-ATf">
             <objects>
                 <viewController id="YmS-6c-PRw" customClass="OshiCollectionViewController" customModule="PhotoApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -103,7 +107,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推しコレクション" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yp3-y1-1SG">
-                                <rect key="frame" x="30" y="64" width="354" height="21"/>
+                                <rect key="frame" x="30" y="108" width="354" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="vep-z9-L24"/>
                                 </constraints>
@@ -112,7 +116,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="20X-ZO-gIa">
-                                <rect key="frame" x="30" y="100" width="354" height="713"/>
+                                <rect key="frame" x="30" y="144" width="354" height="669"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="UMW-sb-8eq">
                                     <size key="itemSize" width="128" height="128"/>
@@ -144,14 +148,14 @@
                             <constraint firstItem="Yp3-y1-1SG" firstAttribute="leading" secondItem="ajf-aV-YOk" secondAttribute="leading" constant="30" id="r7q-0W-pX7"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="2sh-an-shG"/>
+                    <navigationItem key="navigationItem" id="QaY-I7-Toe"/>
                     <connections>
                         <outlet property="collectionView" destination="20X-ZO-gIa" id="VjM-G9-i89"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uJT-5P-419" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="868" y="794"/>
+            <point key="canvasLocation" x="1776.8115942028987" y="793.52678571428567"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KNI-F1-JvW">
@@ -161,25 +165,41 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oC0-hX-uKV">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="RLk-SR-RKw"/>
-                        <segue destination="YmS-6c-PRw" kind="relationship" relationship="viewControllers" id="hK2-XK-Boj"/>
+                        <segue destination="NP3-4y-DOI" kind="relationship" relationship="viewControllers" id="hK2-XK-Boj"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c36-TO-7hZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="868.11594202898561" y="-17.410714285714285"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="8ch-Fg-HNe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NP3-4y-DOI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="2sh-an-shG"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kep-C7-KHq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YmS-6c-PRw" kind="relationship" relationship="rootViewController" id="2a6-s3-Pau"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mPS-cb-9zF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="866.66666666666674" y="793.52678571428567"/>
+        </scene>
     </scenes>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 import SwiftUI
 
-final class ListViewController: UIViewController {
+final class SearchViewController: UIViewController {
     
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -86,7 +86,7 @@ final class ListViewController: UIViewController {
 
 }
 
-extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
@@ -113,7 +113,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
 }
 
-extension ListViewController: imageCellDelegate {
+extension SearchViewController: imageCellDelegate {
     
     func bookmarkButtonPressed(index: Int) {
         
@@ -136,7 +136,7 @@ extension ListViewController: imageCellDelegate {
     
 }
 
-extension ListViewController: UITextFieldDelegate {
+extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         search()
         return true
