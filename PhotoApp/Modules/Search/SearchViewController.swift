@@ -13,6 +13,7 @@ final class SearchViewController: UIViewController {
     
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var howToUseLabel: UILabel!
     
     private var searchResult: CustomSearchedResult?
     @IBOutlet weak var searchTextField: UITextField!
@@ -98,7 +99,10 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         cell.index = indexPath.row
         if !Config.isDebug {
             if let searchResult = searchResult {
+                howToUseLabel.isHidden = true
                 cell.loadImage(urlString: searchResult.items[indexPath.row].link)
+            } else {
+                howToUseLabel.isHidden = false
             }
         }
 

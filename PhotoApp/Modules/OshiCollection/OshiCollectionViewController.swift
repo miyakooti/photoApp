@@ -19,7 +19,6 @@ class OshiCollectionViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         
         
-        
         collectionView.register(UINib(nibName: ListIconCell.className, bundle: nil), forCellWithReuseIdentifier: ListIconCell.className)
 
         
