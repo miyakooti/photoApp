@@ -33,13 +33,12 @@ class OshiCollectionViewController: UIViewController {
         layout.itemSize = CGSize(width: width, height: 134)
         collectionView.collectionViewLayout = layout
         
-        oshiCollections = JsonEncoder.readItemsFromUserUserDefault(key: .oshiCollectionKey)
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("あああ")
+        oshiCollections = JsonEncoder.readItemsFromUserUserDefault(key: .oshiCollectionKey)
         collectionView.reloadData()
     }
 

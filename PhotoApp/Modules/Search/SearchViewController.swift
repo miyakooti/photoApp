@@ -20,6 +20,9 @@ final class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UITabBar.appearance().tintColor = UIColor.init(hex: "7CC7E8")
+
         collectionView.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
         
         collectionView.delegate = self
@@ -29,7 +32,8 @@ final class SearchViewController: UIViewController {
         // レイアウト設定
         let layout = UICollectionViewFlowLayout()
         let width = (UIScreen.main.bounds.width / 2) - 5
-        layout.itemSize = CGSize(width: width, height: width)
+        layout.itemSize = CGSize(width: width, height: width + 5)
+        layout.minimumLineSpacing = 0
         collectionView.collectionViewLayout = layout
 
         searchButton.addTarget(nil, action: #selector(search), for: .touchUpInside)

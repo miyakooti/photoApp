@@ -14,6 +14,7 @@
 		D1393F37285ED1E90073981D /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1393F36285ED1E90073981D /* UIImageView.swift */; };
 		D1393F3A285EE8750073981D /* OshiListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1393F39285EE8750073981D /* OshiListViewController.swift */; };
 		D1393F3E285EEB650073981D /* OshiListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1393F3D285EEB650073981D /* OshiListViewController.storyboard */; };
+		D1393F40285EFD9F0073981D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1393F3F285EFD9F0073981D /* UIColor.swift */; };
 		D13FA81728581A9D0041FCD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FA81628581A9D0041FCD0 /* AppDelegate.swift */; };
 		D13FA81928581A9D0041FCD0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FA81828581A9D0041FCD0 /* SceneDelegate.swift */; };
 		D13FA81B28581A9D0041FCD0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FA81A28581A9D0041FCD0 /* SearchViewController.swift */; };
@@ -46,6 +47,7 @@
 		D1393F36285ED1E90073981D /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		D1393F39285EE8750073981D /* OshiListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OshiListViewController.swift; sourceTree = "<group>"; };
 		D1393F3D285EEB650073981D /* OshiListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OshiListViewController.storyboard; sourceTree = "<group>"; };
+		D1393F3F285EFD9F0073981D /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		D13FA81328581A9D0041FCD0 /* PhotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13FA81628581A9D0041FCD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D13FA81828581A9D0041FCD0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 		D1D8F642285DE44900D66146 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D1393F3F285EFD9F0073981D /* UIColor.swift */,
 				D1393F34285ECEB80073981D /* String.swift */,
 				D1D8F643285DE46B00D66146 /* NSObject.swift */,
 				D1D8F647285DEA0000D66146 /* UIViewControllerExtension.swift */,
@@ -375,6 +378,7 @@
 				D1D8F636285DE08400D66146 /* OshiCollection.swift in Sources */,
 				D1D8F644285DE46B00D66146 /* NSObject.swift in Sources */,
 				D1393F35285ECEB80073981D /* String.swift in Sources */,
+				D1393F40285EFD9F0073981D /* UIColor.swift in Sources */,
 				D1D8F63F285DE37500D66146 /* ListIconCell.swift in Sources */,
 				D1393F2C285EBEBC0073981D /* Config.swift in Sources */,
 				D13FA81728581A9D0041FCD0 /* AppDelegate.swift in Sources */,

@@ -27,10 +27,9 @@ class OshiListViewController: UIViewController {
         // レイアウト設定
         let layout = UICollectionViewFlowLayout()
         let width = (UIScreen.main.bounds.width / 2) - 5
-        layout.itemSize = CGSize(width: width, height: width)
+        layout.itemSize = CGSize(width: width, height: width + 5)
+        layout.minimumLineSpacing = 0
         collectionView.collectionViewLayout = layout
-        
-        
         
         let iconTap = UITapGestureRecognizer(target: self, action: #selector(backImageTapped))
         iconTap.cancelsTouchesInView = false
@@ -54,6 +53,7 @@ extension OshiListViewController: UICollectionViewDelegate, UICollectionViewData
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
         cell.delegate = self
         cell.index = indexPath.row
+        cell.isViewMode = true
         if !Config.isDebug {
             if let oshiCollection = oshiCollection {
                 cell.loadImage(urlString:
@@ -72,6 +72,8 @@ extension OshiListViewController: UICollectionViewDelegate, UICollectionViewData
 
         return 20
     }
+    
+    
     
     
 }

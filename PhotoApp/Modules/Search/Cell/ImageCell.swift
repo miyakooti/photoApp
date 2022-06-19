@@ -19,6 +19,7 @@ class ImageCell: UICollectionViewCell {
 
     var index = 0
     var delegate: imageCellDelegate?
+    var isViewMode = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,6 +27,9 @@ class ImageCell: UICollectionViewCell {
     }
     
     func loadImage(urlString: String) {
+        if isViewMode {
+            bookmarkButton.isHidden = true
+        }
         guard let url = URL(string: urlString) else { return }
         Nuke.loadImage(with: url, into: imageView)
     }

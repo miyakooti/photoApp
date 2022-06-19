@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--探す-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="PhotoApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,11 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ooN-TK-8vs">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ooN-TK-8vs">
                                 <rect key="frame" x="0.0" y="44" width="414" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mla-Af-kL8">
-                                        <rect key="frame" x="344" y="5" width="40" height="40"/>
+                                        <rect key="frame" x="364" y="5" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="bb1-gZ-rSE"/>
                                             <constraint firstAttribute="height" constant="40" id="hAV-ij-Fjo"/>
@@ -29,24 +29,24 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system" title="">
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseForegroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="誰をお探しですか？" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="U4e-7h-KFP">
-                                        <rect key="frame" x="30" y="10" width="284" height="30"/>
-                                        <color key="backgroundColor" white="0.91258779516114996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="30" y="10" width="324" height="30"/>
+                                        <color key="backgroundColor" white="0.97606456523038898" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.86774104833602905" green="0.95083743333816528" blue="0.98464232683181763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="U4e-7h-KFP" firstAttribute="top" secondItem="ooN-TK-8vs" secondAttribute="top" constant="10" id="0ZX-Wp-y7J"/>
-                                    <constraint firstItem="Mla-Af-kL8" firstAttribute="leading" secondItem="U4e-7h-KFP" secondAttribute="trailing" constant="30" id="6Uf-70-qDR"/>
+                                    <constraint firstItem="Mla-Af-kL8" firstAttribute="leading" secondItem="U4e-7h-KFP" secondAttribute="trailing" constant="10" id="6Uf-70-qDR"/>
                                     <constraint firstAttribute="height" constant="50" id="KDq-xw-3Uf"/>
                                     <constraint firstItem="U4e-7h-KFP" firstAttribute="leading" secondItem="ooN-TK-8vs" secondAttribute="leading" constant="30" id="Z23-uc-upb"/>
                                     <constraint firstItem="Mla-Af-kL8" firstAttribute="centerY" secondItem="ooN-TK-8vs" secondAttribute="centerY" id="jrs-BV-1kg"/>
-                                    <constraint firstAttribute="trailing" secondItem="Mla-Af-kL8" secondAttribute="trailing" constant="30" id="lvh-Gn-4v2"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mla-Af-kL8" secondAttribute="trailing" constant="10" id="lvh-Gn-4v2"/>
                                     <constraint firstAttribute="bottom" secondItem="U4e-7h-KFP" secondAttribute="bottom" constant="10" id="uP3-63-DtV"/>
                                 </constraints>
                             </view>
@@ -84,7 +84,7 @@
                             <constraint firstItem="ooN-TK-8vs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vj3-eE-EcZ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Uwj-8T-PcG">
+                    <tabBarItem key="tabBarItem" title="探す" image="magnifyingglass" catalog="system" id="Uwj-8T-PcG">
                         <color key="badgeColor" red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="D0T-Kh-X41"/>
@@ -111,12 +111,12 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="vep-z9-L24"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <color key="textColor" red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <color key="textColor" red="0.48627450979999998" green="0.78039215689999997" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="20X-ZO-gIa">
-                                <rect key="frame" x="30" y="144" width="354" height="669"/>
+                                <rect key="frame" x="30" y="149" width="354" height="664"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="UMW-sb-8eq">
                                     <size key="itemSize" width="128" height="128"/>
@@ -139,7 +139,7 @@
                         <viewLayoutGuide key="safeArea" id="ajf-aV-YOk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="20X-ZO-gIa" firstAttribute="top" secondItem="Yp3-y1-1SG" secondAttribute="bottom" constant="15" id="C9z-gL-6uY"/>
+                            <constraint firstItem="20X-ZO-gIa" firstAttribute="top" secondItem="Yp3-y1-1SG" secondAttribute="bottom" constant="20" id="C9z-gL-6uY"/>
                             <constraint firstItem="Yp3-y1-1SG" firstAttribute="top" secondItem="ajf-aV-YOk" secondAttribute="top" constant="20" id="KWM-lk-wac"/>
                             <constraint firstItem="20X-ZO-gIa" firstAttribute="leading" secondItem="ajf-aV-YOk" secondAttribute="leading" constant="30" id="RHY-L3-oQX"/>
                             <constraint firstItem="ajf-aV-YOk" firstAttribute="trailing" secondItem="20X-ZO-gIa" secondAttribute="trailing" constant="30" id="l9d-Cu-rKK"/>
@@ -165,7 +165,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oC0-hX-uKV">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.86774104833602905" green="0.95083743333816528" blue="0.98464232683181763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="RLk-SR-RKw"/>
@@ -176,11 +176,11 @@
             </objects>
             <point key="canvasLocation" x="868.11594202898561" y="-17.410714285714285"/>
         </scene>
-        <!--Item-->
+        <!--推しコレクション-->
         <scene sceneID="8ch-Fg-HNe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NP3-4y-DOI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="2sh-an-shG"/>
+                    <tabBarItem key="tabBarItem" title="推しコレクション" image="book.fill" catalog="system" id="2sh-an-shG"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kep-C7-KHq">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -197,6 +197,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="book.fill" catalog="system" width="128" height="95"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

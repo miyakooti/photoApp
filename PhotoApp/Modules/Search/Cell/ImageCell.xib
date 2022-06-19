@@ -11,40 +11,41 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="gTV-IL-0wX" customClass="ImageCell" customModule="PhotoApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="197" height="189"/>
+            <rect key="frame" x="0.0" y="0.0" width="197" height="194"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="197" height="189"/>
+                <rect key="frame" x="0.0" y="0.0" width="197" height="194"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wps-48-Pvr">
-                        <rect key="frame" x="0.0" y="0.0" width="197" height="189"/>
+                        <rect key="frame" x="0.0" y="0.0" width="197" height="194"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scribble.variable" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tGl-MV-R2h">
-                                <rect key="frame" x="5" y="4.5" width="187" height="178.5"/>
+                                <rect key="frame" x="0.0" y="-0.5" width="197" height="183.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" red="0.93333333330000001" green="0.41960784309999999" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemBrownColor"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6d1-nf-HZo">
-                                <rect key="frame" x="150" y="134" width="40" height="40"/>
+                                <rect key="frame" x="140" y="130" width="50" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="ATo-yD-Z8d"/>
-                                    <constraint firstAttribute="width" constant="40" id="Frp-0z-cpy"/>
+                                    <constraint firstAttribute="height" constant="45" id="ATo-yD-Z8d"/>
+                                    <constraint firstAttribute="width" constant="50" id="Frp-0z-cpy"/>
                                 </constraints>
+                                <color key="tintColor" red="0.48627450980392156" green="0.7803921568627451" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="">
                                     <backgroundConfiguration key="background" image="ribbon"/>
                                 </buttonConfiguration>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="tGl-MV-R2h" firstAttribute="top" secondItem="wps-48-Pvr" secondAttribute="top" constant="5" id="28I-NL-oOY"/>
-                            <constraint firstAttribute="bottom" secondItem="tGl-MV-R2h" secondAttribute="bottom" constant="5" id="GFa-zk-jYg"/>
-                            <constraint firstAttribute="bottom" secondItem="6d1-nf-HZo" secondAttribute="bottom" constant="15" id="IdL-kQ-sZI"/>
+                            <constraint firstItem="tGl-MV-R2h" firstAttribute="top" secondItem="wps-48-Pvr" secondAttribute="top" id="28I-NL-oOY"/>
+                            <constraint firstAttribute="bottom" secondItem="tGl-MV-R2h" secondAttribute="bottom" constant="10" id="GFa-zk-jYg"/>
+                            <constraint firstAttribute="bottom" secondItem="6d1-nf-HZo" secondAttribute="bottom" constant="19" id="IdL-kQ-sZI"/>
                             <constraint firstAttribute="trailing" secondItem="6d1-nf-HZo" secondAttribute="trailing" constant="7" id="OgF-Rc-3cp"/>
-                            <constraint firstItem="tGl-MV-R2h" firstAttribute="leading" secondItem="wps-48-Pvr" secondAttribute="leading" constant="5" id="Zlw-Bj-XRk"/>
-                            <constraint firstAttribute="trailing" secondItem="tGl-MV-R2h" secondAttribute="trailing" constant="5" id="fIo-uU-oz6"/>
+                            <constraint firstItem="tGl-MV-R2h" firstAttribute="leading" secondItem="wps-48-Pvr" secondAttribute="leading" id="Zlw-Bj-XRk"/>
+                            <constraint firstAttribute="trailing" secondItem="tGl-MV-R2h" secondAttribute="trailing" id="fIo-uU-oz6"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -68,8 +69,8 @@
     <resources>
         <image name="ribbon" width="150" height="150"/>
         <image name="scribble.variable" catalog="system" width="128" height="118"/>
-        <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
