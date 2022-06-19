@@ -16,6 +16,10 @@ class OshiCollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.isNavigationBarHidden = true
+        
+        
+        
         collectionView.register(UINib(nibName: ListIconCell.className, bundle: nil), forCellWithReuseIdentifier: ListIconCell.className)
 
         
@@ -68,7 +72,8 @@ extension OshiCollectionViewController: ListIconCellDelegate {
    
     func imageViewTapped(index: Int) {
         if let oshiCollections = oshiCollections, oshiCollections.count > 0 {
-            print(oshiCollections[index].listName)
+            let vc = OshiListViewController.loadStoryboard()
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         
     }
