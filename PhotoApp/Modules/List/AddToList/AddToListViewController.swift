@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class AddToListViewController: UIViewController {
 
@@ -13,6 +14,7 @@ class AddToListViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     
     var imageCollection: [ImageCollection]?
+    var pushedUrl = ""
     @IBOutlet weak var backView: UIView!
     
     
@@ -21,8 +23,8 @@ class AddToListViewController: UIViewController {
         
         cancelButton.addTarget(nil, action: #selector(cancelButtonPressed), for: .touchUpInside)
 
-        collectionView.register(UINib(nibName: "CollectionCell", bundle: nil), forCellWithReuseIdentifier: "CollectionCell")
-        collectionView.register(UINib(nibName: "AddButtonCell", bundle: nil), forCellWithReuseIdentifier: "AddButtonCell")
+        collectionView.register(UINib(nibName: ListIconCell.className, bundle: nil), forCellWithReuseIdentifier: ListIconCell.className)
+        collectionView.register(UINib(nibName: AddButtonCell.className, bundle: nil), forCellWithReuseIdentifier: AddButtonCell.className)
 
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -30,20 +32,8 @@ class AddToListViewController: UIViewController {
         backView.layer.cornerRadius = 15
         backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
-        let testData = [
-            ImageCollection(listName: "影山優香", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/844/02450174314bb3f596ce3254d0fb3/400_320_102400.jpg")]),
-            ImageCollection(listName: "齊藤京子2", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
-            ImageCollection(listName: "影山優香", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/844/02450174314bb3f596ce3254d0fb3/400_320_102400.jpg")]),
-            ImageCollection(listName: "加藤志穂", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/730/13682c011735c92c06afa89fea784/400_320_102400.jpg")]),
-            ImageCollection(listName: "齊藤京子5", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
-            ImageCollection(listName: "齊藤京子6", items: []),
-            ImageCollection(listName: "齊藤京子7", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
-            ImageCollection(listName: "齊藤京子8", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
-            ImageCollection(listName: "齊藤京子9", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
-            ImageCollection(listName: "齊藤京子10", items: [ListItem(url: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")]),
+        //        imageCollection = testData
 
-        ]
-        
 //        JsonEncoder.saveItemsToUserDefaults(list: testData, key: "imageCollection")
         
         imageCollection = JsonEncoder.readItemsFromUserUserDefault(key: "imageCollection")
@@ -56,7 +46,6 @@ class AddToListViewController: UIViewController {
         layout.itemSize = CGSize(width: width, height: 110)
         collectionView.collectionViewLayout = layout
         
-//        imageCollection = testData
         
         collectionView.reloadData()
         
@@ -82,13 +71,17 @@ class AddToListViewController: UIViewController {
 extension AddToListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddButtonCell", for: indexPath) as! AddButtonCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddButtonCell.className, for: indexPath) as! AddButtonCell
             cell.delegate = self
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! CollectionCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListIconCell.className, for: indexPath) as! ListIconCell
+            cell.delegate = self
             if let imageCollection = imageCollection, imageCollection.count > 0 {
+                cell.index = indexPath.row - 1
                 cell.configure(imageCollection: imageCollection[indexPath.row - 1])
+
+                
             }
             return cell
         }
@@ -97,7 +90,6 @@ extension AddToListViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // リスト追加する時は＋1すればいい
         guard let imageCollection = imageCollection else { return 0 }
         return imageCollection.count + 1
     }
@@ -107,17 +99,19 @@ extension AddToListViewController: UICollectionViewDelegate, UICollectionViewDat
 
 extension AddToListViewController: addButtonCellDelegate {
     func plusButtonTapped() {
-        print("ここでアラートの処理")
-        
         let alert: UIAlertController = UIAlertController(title: "新規リスト", message: "リストの名前を入力してください", preferredStyle: .alert)
         alert.addTextField(configurationHandler: nil)
         alert.textFields?.first?.placeholder = "リスト1"
         alert.textFields?.first?.addTarget(self, action: #selector(textFieldDidChange), for: .allEditingEvents)
         let saveAction: UIAlertAction = UIAlertAction(title: "決定", style: .default, handler: { [weak self] (_: UIAlertAction!) -> Void in
             guard let text = alert.textFields?.first?.text, !text.isEmpty else { return }
-            self?.imageCollection?.append(ImageCollection(listName: text, items: []))
+            self?.imageCollection?.insert(ImageCollection(listName: text, items: []), at: 0)
             guard let imageCollection = self?.imageCollection else { return }
             JsonEncoder.saveItemsToUserDefaults(list: imageCollection, key: "imageCollection")
+            SVProgressHUD.showSuccess(withStatus: "推しフォルダを追加しました")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                SVProgressHUD.dismiss()
+            }
             self?.collectionView.reloadData()
             
         })
@@ -130,6 +124,33 @@ extension AddToListViewController: addButtonCellDelegate {
     }
     
     
+}
+
+extension AddToListViewController: ListIconCellDelegate {
+    func imageViewTapped(index: Int) {
+        // リストに保存する処理
+
+
+        guard var imageCollection = imageCollection,
+              pushedUrl != "" else { return }
+        imageCollection[index].items.insert(ListItem(url: pushedUrl), at: 0)
+        JsonEncoder.saveItemsToUserDefaults(list: imageCollection, key: "imageCollection")
+        print("保存完了")
+        
+        self.dismiss(animated: true, completion: nil)
+        NotificationCenter.default.post(name: .shouldCloseShade, object: nil)
+        
+        SVProgressHUD.showSuccess(withStatus: "推しを保存しました")
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+            SVProgressHUD.dismiss()
+        }
+        
+        
+
+        
+        
+    }
 }
 
 

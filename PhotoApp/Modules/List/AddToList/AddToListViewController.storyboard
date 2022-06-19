@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="462" width="414" height="400"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="077-WM-uJc">
-                                        <rect key="frame" x="30" y="81" width="354" height="289"/>
+                                        <rect key="frame" x="30" y="66" width="354" height="304"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="EHe-Qb-Y4u">
                                             <size key="itemSize" width="128" height="128"/>
@@ -40,17 +40,17 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="保存先を選択" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pwz-uZ-zLg">
-                                        <rect key="frame" x="50" y="30" width="228" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推しフォルダを選択" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pwz-uZ-zLg">
+                                        <rect key="frame" x="30" y="30" width="229" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nj7-OG-LGI">
-                                        <rect key="frame" x="288" y="30" width="96" height="31"/>
+                                        <rect key="frame" x="269" y="25" width="120" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="lGj-s0-1KX"/>
-                                            <constraint firstAttribute="width" constant="96" id="la1-wB-ng3"/>
+                                            <constraint firstAttribute="width" constant="120" id="la1-wB-ng3"/>
                                         </constraints>
                                         <color key="tintColor" red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
@@ -58,7 +58,7 @@
                                             <attributedString key="attributedTitle">
                                                 <fragment content="キャンセル">
                                                     <attributes>
-                                                        <font key="NSFont" size="14" name="HiraginoSans-W4"/>
+                                                        <font key="NSFont" size="16" name="HiraginoSans-W4"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
@@ -71,10 +71,10 @@
                                     <constraint firstAttribute="bottom" secondItem="077-WM-uJc" secondAttribute="bottom" constant="30" id="3SD-Vi-5hD"/>
                                     <constraint firstItem="077-WM-uJc" firstAttribute="leading" secondItem="iP3-tK-m9t" secondAttribute="leading" constant="30" id="D8T-ch-pB3"/>
                                     <constraint firstItem="Pwz-uZ-zLg" firstAttribute="top" secondItem="iP3-tK-m9t" secondAttribute="top" constant="30" id="Qor-kW-qVI"/>
-                                    <constraint firstItem="077-WM-uJc" firstAttribute="top" secondItem="Pwz-uZ-zLg" secondAttribute="bottom" constant="30" id="URF-tr-Ch5"/>
-                                    <constraint firstAttribute="trailing" secondItem="Nj7-OG-LGI" secondAttribute="trailing" constant="30" id="aLz-Zx-aLU"/>
-                                    <constraint firstItem="Nj7-OG-LGI" firstAttribute="top" secondItem="iP3-tK-m9t" secondAttribute="top" constant="30" id="su4-1u-j2o"/>
-                                    <constraint firstItem="Pwz-uZ-zLg" firstAttribute="leading" secondItem="iP3-tK-m9t" secondAttribute="leading" constant="50" id="w5v-C3-qLX"/>
+                                    <constraint firstItem="077-WM-uJc" firstAttribute="top" secondItem="Pwz-uZ-zLg" secondAttribute="bottom" constant="15" id="URF-tr-Ch5"/>
+                                    <constraint firstAttribute="trailing" secondItem="Nj7-OG-LGI" secondAttribute="trailing" constant="25" id="aLz-Zx-aLU"/>
+                                    <constraint firstItem="Nj7-OG-LGI" firstAttribute="top" secondItem="iP3-tK-m9t" secondAttribute="top" constant="25" id="su4-1u-j2o"/>
+                                    <constraint firstItem="Pwz-uZ-zLg" firstAttribute="leading" secondItem="iP3-tK-m9t" secondAttribute="leading" constant="30" id="w5v-C3-qLX"/>
                                     <constraint firstItem="Nj7-OG-LGI" firstAttribute="leading" secondItem="Pwz-uZ-zLg" secondAttribute="trailing" constant="10" id="wXW-T7-t8X"/>
                                     <constraint firstAttribute="trailing" secondItem="077-WM-uJc" secondAttribute="trailing" constant="30" id="y5O-6G-kTG"/>
                                 </constraints>

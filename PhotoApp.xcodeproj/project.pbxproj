@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1393F2C285EBEBC0073981D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1393F2B285EBEBC0073981D /* Config.swift */; };
 		D13FA81728581A9D0041FCD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FA81628581A9D0041FCD0 /* AppDelegate.swift */; };
 		D13FA81928581A9D0041FCD0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FA81828581A9D0041FCD0 /* SceneDelegate.swift */; };
 		D13FA81B28581A9D0041FCD0 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FA81A28581A9D0041FCD0 /* ListViewController.swift */; };
@@ -19,8 +20,8 @@
 		D1D8F636285DE08400D66146 /* ImageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D8F635285DE08400D66146 /* ImageCollection.swift */; };
 		D1D8F638285DE15000D66146 /* AddToListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D8F637285DE15000D66146 /* AddToListViewController.swift */; };
 		D1D8F63A285DE16300D66146 /* AddToListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1D8F639285DE16300D66146 /* AddToListViewController.storyboard */; };
-		D1D8F63F285DE37500D66146 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D8F63D285DE37500D66146 /* CollectionCell.swift */; };
-		D1D8F640285DE37500D66146 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1D8F63E285DE37500D66146 /* CollectionCell.xib */; };
+		D1D8F63F285DE37500D66146 /* ListIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D8F63D285DE37500D66146 /* ListIconCell.swift */; };
+		D1D8F640285DE37500D66146 /* ListIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1D8F63E285DE37500D66146 /* ListIconCell.xib */; };
 		D1D8F644285DE46B00D66146 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D8F643285DE46B00D66146 /* NSObject.swift */; };
 		D1D8F646285DE47500D66146 /* JsonEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D8F645285DE47500D66146 /* JsonEncoder.swift */; };
 		D1D8F648285DEA0000D66146 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D8F647285DEA0000D66146 /* UIViewControllerExtension.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		78725F091182E90EB8A5B857 /* Pods-PhotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoApp.release.xcconfig"; path = "Target Support Files/Pods-PhotoApp/Pods-PhotoApp.release.xcconfig"; sourceTree = "<group>"; };
 		B739303C93D23C3FBE6FF173 /* Pods_PhotoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1393F2B285EBEBC0073981D /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		D13FA81328581A9D0041FCD0 /* PhotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13FA81628581A9D0041FCD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D13FA81828581A9D0041FCD0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,8 +48,8 @@
 		D1D8F635285DE08400D66146 /* ImageCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollection.swift; sourceTree = "<group>"; };
 		D1D8F637285DE15000D66146 /* AddToListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToListViewController.swift; sourceTree = "<group>"; };
 		D1D8F639285DE16300D66146 /* AddToListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddToListViewController.storyboard; sourceTree = "<group>"; };
-		D1D8F63D285DE37500D66146 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
-		D1D8F63E285DE37500D66146 /* CollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
+		D1D8F63D285DE37500D66146 /* ListIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListIconCell.swift; sourceTree = "<group>"; };
+		D1D8F63E285DE37500D66146 /* ListIconCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListIconCell.xib; sourceTree = "<group>"; };
 		D1D8F643285DE46B00D66146 /* NSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		D1D8F645285DE47500D66146 /* JsonEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonEncoder.swift; sourceTree = "<group>"; };
 		D1D8F647285DEA0000D66146 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 		D1D8F633285DE01900D66146 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				D1393F2B285EBEBC0073981D /* Config.swift */,
 				D1D8F634285DE02F00D66146 /* Launch */,
 				D1D8F62F285DDFC900D66146 /* List */,
 			);
@@ -176,8 +179,8 @@
 		D1D8F63C285DE34E00D66146 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				D1D8F63D285DE37500D66146 /* CollectionCell.swift */,
-				D1D8F63E285DE37500D66146 /* CollectionCell.xib */,
+				D1D8F63D285DE37500D66146 /* ListIconCell.swift */,
+				D1D8F63E285DE37500D66146 /* ListIconCell.xib */,
 				D1D8F649285E0AB400D66146 /* AddButtonCell.swift */,
 				D1D8F64A285E0AB400D66146 /* AddButtonCell.xib */,
 			);
@@ -273,7 +276,7 @@
 				D13FA82328581A9F0041FCD0 /* LaunchScreen.storyboard in Resources */,
 				D1D8F62E285DB75E00D66146 /* ImageCell.xib in Resources */,
 				D13FA82028581A9F0041FCD0 /* Assets.xcassets in Resources */,
-				D1D8F640285DE37500D66146 /* CollectionCell.xib in Resources */,
+				D1D8F640285DE37500D66146 /* ListIconCell.xib in Resources */,
 				D1D8F64C285E0AB400D66146 /* AddButtonCell.xib in Resources */,
 				D1D8F63A285DE16300D66146 /* AddToListViewController.storyboard in Resources */,
 				D13FA81E28581A9D0041FCD0 /* Main.storyboard in Resources */,
@@ -334,7 +337,8 @@
 				D1D8F638285DE15000D66146 /* AddToListViewController.swift in Sources */,
 				D1D8F636285DE08400D66146 /* ImageCollection.swift in Sources */,
 				D1D8F644285DE46B00D66146 /* NSObject.swift in Sources */,
-				D1D8F63F285DE37500D66146 /* CollectionCell.swift in Sources */,
+				D1D8F63F285DE37500D66146 /* ListIconCell.swift in Sources */,
+				D1393F2C285EBEBC0073981D /* Config.swift in Sources */,
 				D13FA81728581A9D0041FCD0 /* AppDelegate.swift in Sources */,
 				D186A149285DAAA400BB4F83 /* CustomSearchedResult.swift in Sources */,
 				D13FA81928581A9D0041FCD0 /* SceneDelegate.swift in Sources */,

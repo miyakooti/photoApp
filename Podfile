@@ -9,5 +9,7 @@ target 'PhotoApp' do
 
 pod "Alamofire"
 pod "Nuke"
+pod 'SVProgressHUD'
+
 
 end

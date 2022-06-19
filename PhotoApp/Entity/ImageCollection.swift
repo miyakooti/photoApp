@@ -9,7 +9,7 @@ import Foundation
 
 struct ImageCollection: Codable {
     let listName: String
-    let items: [ListItem]
+    var items: [ListItem]
 }
 
 struct ListItem: Codable {

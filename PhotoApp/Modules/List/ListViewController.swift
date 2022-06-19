@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import SwiftUI
 
 final class ListViewController: UIViewController {
     
@@ -103,9 +104,12 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
         cell.delegate = self
         cell.index = indexPath.row
-//        if let searchResult = searchResult {
-//            cell.loadImage(urlString: searchResult.items[indexPath.row].link)
-//        }
+        if !Config.isDebug {
+            if let searchResult = searchResult {
+                cell.loadImage(urlString: searchResult.items[indexPath.row].link)
+            }
+        }
+
 //        if let searchResult = searchResult {
 //            cell.loadImage(urlString: "https://cdn.hinatazaka46.com/images/14/691/64f4b4d860bc36d8d436cc4d4d2db/1000_1000_102400.jpg")
 //        }
@@ -113,8 +117,11 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        guard let searchResult = searchResult else { return 0 }
-//        return searchResult.items.count
+        if !Config.isDebug {
+            guard let searchResult = searchResult else { return 0 }
+            return searchResult.items.count
+        }
+
         return 20
     }
     
@@ -125,10 +132,15 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
 extension ListViewController: imageCellDelegate {
     func bookmarkButtonPressed(index: Int) {
-        print("あああ")
+        print("押されたのは", index)
+        
         let vc = AddToListViewController.instantiate()
 //        vc.delegate = self
         vc.modalPresentationStyle = .overCurrentContext
+        if !Config.isDebug {
+            guard let link = searchResult?.items[index].link else { return }
+            vc.pushedUrl = link
+        }
         self.present(vc, animated: true, completion: nil)
         
         shadeView.backgroundColor = .black

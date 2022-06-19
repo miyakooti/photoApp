@@ -26,7 +26,6 @@ class AddButtonCell: UICollectionViewCell {
     }
     
     @objc func plusButtonTapped() {
-        print("おされたよ")
         delegate?.plusButtonTapped()
         
     }
