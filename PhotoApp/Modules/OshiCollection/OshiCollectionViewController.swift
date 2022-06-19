@@ -72,7 +72,9 @@ extension OshiCollectionViewController: ListIconCellDelegate {
    
     func imageViewTapped(index: Int) {
         if let oshiCollections = oshiCollections, oshiCollections.count > 0 {
+            let oshiCollection = oshiCollections[index]
             let vc = OshiListViewController.loadStoryboard()
+            vc.oshiCollection = oshiCollection
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
