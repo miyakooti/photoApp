@@ -44,7 +44,7 @@ class AddToListViewController: UIViewController {
 
         ]
         
-        JsonEncoder.saveItemsToUserDefaults(list: testData, key: "imageCollection")
+//        JsonEncoder.saveItemsToUserDefaults(list: testData, key: "imageCollection")
         
         imageCollection = JsonEncoder.readItemsFromUserUserDefault(key: "imageCollection")
         
@@ -116,6 +116,8 @@ extension AddToListViewController: addButtonCellDelegate {
         let saveAction: UIAlertAction = UIAlertAction(title: "決定", style: .default, handler: { [weak self] (_: UIAlertAction!) -> Void in
             guard let text = alert.textFields?.first?.text, !text.isEmpty else { return }
             self?.imageCollection?.append(ImageCollection(listName: text, items: []))
+            guard let imageCollection = self?.imageCollection else { return }
+            JsonEncoder.saveItemsToUserDefaults(list: imageCollection, key: "imageCollection")
             self?.collectionView.reloadData()
             
         })
