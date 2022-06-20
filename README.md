@@ -1,3 +1,5 @@
+# これはアプリのドキュメントではありません。```appDescription.docx```を参照してください
+
 # ビルド方法
 - ```pod install```（いらないかも）
 - ```apiKey```と```searchKey```を```Config.swift```内の変数に記述する。
