@@ -1,7 +1,10 @@
+# 推しコレ
+- 推しの画像をコレクションするアプリ。
+
 # これはアプリのドキュメントではありません。```appDescription.docx```を参照してください
 
 # ビルド方法
-- ```pod install```（いらないかも）
+- ```pod install```
 - ```apiKey```と```searchKey```を```Config.swift```内の変数に記述する。
 
 
