@@ -48,9 +48,9 @@ final class SearchViewController: UIViewController {
             URLQueryItem(name: "searchType", value: "image"),
             URLQueryItem(name: "q", value: query),
             // To get `key`, create your own project from https://console.developers.google.com/projectcreate
-            URLQueryItem(name: "key", value: "AIzaSyD3l2kihyoZxZTSEI4JP52mv3qCLpMxGZE"),
+            URLQueryItem(name: "key", value: Config.apiKey),
             // To get `cx`, create your own search engine from https://cse.google.com/cse/create/new
-            URLQueryItem(name: "cx", value: "74ba61de5531c3dd3")
+            URLQueryItem(name: "cx", value: Config.searchKey)
         ]
 
         let task = URLSession.shared.dataTask(with: urlComponents.url!) { [weak self] data, response, error in

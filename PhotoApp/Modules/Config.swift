@@ -9,6 +9,11 @@ import Foundation
 
 struct Config {
     
+    static let apiKey = "apiKeyを入力してください"
+    static let searchKey = "searchKeyを入力してください"
+    
+    
+    
     static let isDebug = false
     
     static let testData = [
